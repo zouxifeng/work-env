@@ -9,3 +9,8 @@
     whitespace = space-before-tab, trailing-space
 [color]
     ui = auto
+[user]
+	email = zou.xifeng@gmail.com
+	name = Zou Xifeng
+[push]
+	default = simple

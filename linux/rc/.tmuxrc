@@ -1,5 +1,5 @@
 # set zsh as default shell
-set -g default-shell /usr/local/bin/zsh
+set -g default-shell /bin/zsh
 
 # set prefix like screen Ctrl + a
 set-option -g prefix C-o
@@ -28,7 +28,6 @@ set -g status-left-length 255
 set -g status-right-length 255
 
 set -g terminal-overrides "*88col*:colors=88,*256col*:colors=256,xterm*:colors=256"
-set -g default-terminal "screen-256color"
 # set -g status-bg default
 # set -g status-left "#[fg=cyan]:#[fg=blue]: #[fg=red][ #[fg=green]#H #[fg=red]]#[default]"
 # set -g status-right "#[fg=red][ #[fg=green]%H:%M #[fg=magenta]%a %m-%d #[fg=red]] #[fg=blue]:#[fg=cyan]:#[default]"
