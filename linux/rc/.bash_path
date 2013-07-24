@@ -1,5 +1,5 @@
-ANDROID_HOME=~/apps/android-sdk-linux/
-ANDROID_NDK_HOME=~/apps/android-ndk-r8b/
+ANDROID_HOME=~/apps/android-sdk-linux
+ANDROID_NDK_HOME=~/apps/android-ndk-r8b
 
 ANT_HOME=~/apps/ant
 MAVEN_HOME=~/apps/maven
