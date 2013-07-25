@@ -78,7 +78,7 @@ function setup_zsh() {
     PLUGINS_LINENUMBER="`grep -n "(git)" ~/.zshrc | cut -f1 -d:`"
     echo "Find plugins at $PLUGINS_LINENUMBER"
     if [ -n "$PLUGINS_LINENUMBER" ]; then
-        sed -i "${PLUGINS_LINENUMBER}s/git/git tmux/" ~/.zshrc
+        sed -i "${PLUGINS_LINENUMBER}s/git/git tmux autojump/" ~/.zshrc
     fi
 
 
@@ -95,7 +95,7 @@ source ~/.bash_path
 
 setupdir
 
-sudo apt-get install vim zsh tmux
+sudo apt-get install vim zsh tmux autojump
 
 setup_zsh
 # setup_vim

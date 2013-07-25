@@ -13,7 +13,6 @@ alias l='ls -CF'
 alias dir='ls --format=vertical'
 alias l.='ls -a'
 alias rm='rm -i'
-alias screen='screen -U'
 alias lla="ls -la"
 alias vi="vim"
 
