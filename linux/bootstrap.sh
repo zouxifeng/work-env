@@ -25,16 +25,17 @@ setupdir () {
 function create_link() {
     FILE=$1
     DST=$2
-    TARGET_FILE=$1
     if [ -z "$2" ]; then
-        DST=~
+        TARGET_FILE=$HOME/$1
+    else
         TARGET_FILE=$2
     fi
 
-    if [ -L "$DST/$FILE" ]; then
-        rm -f "$DST/$FILE"
+    echo "Create sym link for $1, at $TARGET_FILE..."
+    if [ -L "$TARGET_FILE" ]; then
+        rm -f "${TARGET_FILE}"
     fi
-    ln -s $PRGDIR/rc/$FILE $DST/$TARGET_FILE
+    ln -s $PRGDIR/rc/$FILE $TARGET_FILE
 }
 
 function setup_vim() {
@@ -47,15 +48,30 @@ function setup_vim() {
     curl -o ~/.vimrc https://raw.github.com/fisadev/fisa-vim-config/master/.vimrc
 
     VIM_PS_LINENUMBER="`grep -n "Powerline_symbols" ~/.vimrc | cut -f1 -d:`"
-    echo "Find Powerline_symbols at $VIM_PS_LINENUMBER"
     if [ -n "$VIM_PS_LINENUMBER" ]; then
+        echo "Find Powerline_symbols at $VIM_PS_LINENUMBER"
         echo "Enable power line symbols..."
         sed -i "${VIM_PS_LINENUMBER}s/\" //" ~/.vimrc
+    else
+        echo "Powerline symbols not found."
+    fi
+
+    CUSTOM_GITHUB_REPO_LINENUMBER="`grep -n "Bundles from GitHub repos:" ~/.vimrc | cut -f1 -d:`"
+    if [ -n "$CUSTOM_GITHUB_REPO_LINENUMBER" ]; then
+        echo "Find bundles from github repos at ${CUSTOM_GITHUB_REPO_LINENUMBER}"
+        CUSTOM_BUNDLES="jnwhiteh\/vim-golang alderz\/smali-vim"
+        echo "These bunldes $CUSTOM_BUNDLES will be installed."
+        echo "Add custom vim plugins from github..."
+
+        bundles="\" Bundles from GitHub repos: \n\n\" My custom bundles "
+        for bundle in $CUSTOM_BUNDLES; do
+            bundles="${bundles}\\nBundle '${bundle}'"
+        done
+        sed -i "${CUSTOM_GITHUB_REPO_LINENUMBER}s/.*/${bundles}/" ~/.vimrc
     fi
 
     echo -e "
 \" My custom settings.\\n\
-Bundle 'airblade/vim-gitgutter'\\n\
 \" gz in command mode closes the current buffer\\n\
 map gz :bdelete<cr>\\n" >> ~/.vimrc
 
@@ -95,10 +111,10 @@ source ~/.bash_path
 
 setupdir
 
-sudo apt-get install vim zsh tmux autojump
+# sudo apt-get install vim zsh tmux autojump
 
 setup_zsh
-# setup_vim
+setup_vim
 
 echo "Working directory: $PRGDIR"
 create_link .bash_aliases
