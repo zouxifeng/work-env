@@ -1,0 +1,14 @@
+" My custom bundles 
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'alderz/smali-vim'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-fugitive'
+Bundle 'vim-scripts/greplace.vim'
+Bundle 'vim-scripts/kwbdi.vim'
+Bundle 'tpope/vim-ragtag'
+Bundle 'tpope/vim-repeat'
+Bundle 'scrooloose/syntastic'
+Bundle 'nathanaelkane/vim-indent-guides'
+Bundle 'christoomey/vim-tmux-navigator'
+
+

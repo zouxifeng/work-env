@@ -59,21 +59,11 @@ function setup_vim() {
     CUSTOM_GITHUB_REPO_LINENUMBER="`grep -n "Bundles from GitHub repos:" ~/.vimrc | cut -f1 -d:`"
     if [ -n "$CUSTOM_GITHUB_REPO_LINENUMBER" ]; then
         echo "Find bundles from github repos at ${CUSTOM_GITHUB_REPO_LINENUMBER}"
-        CUSTOM_BUNDLES="jnwhiteh\/vim-golang alderz\/smali-vim"
-        echo "These bunldes $CUSTOM_BUNDLES will be installed."
-        echo "Add custom vim plugins from github..."
-
-        bundles="\" Bundles from GitHub repos: \n\n\" My custom bundles "
-        for bundle in $CUSTOM_BUNDLES; do
-            bundles="${bundles}\\nBundle '${bundle}'"
-        done
+        bundles="\" Bundles from GitHub repos: \n\n\" My custom bundles \nsource ~/.vimrc.bundles"
         sed -i "${CUSTOM_GITHUB_REPO_LINENUMBER}s/.*/${bundles}/" ~/.vimrc
     fi
 
-    echo -e "
-\" My custom settings.\\n\
-\" gz in command mode closes the current buffer\\n\
-map gz :bdelete<cr>\\n" >> ~/.vimrc
+    echo -e "\\nsource ~/.vimrc.local\\n" >> ~/.vimrc
 
     mkdir -p ~/.fonts
     ln -s $PRGDIR/Monaco_Linux-Powerline.ttf ~/.fonts
@@ -122,5 +112,7 @@ create_link .bash_path
 create_link .bash_env
 create_link .gitconfig
 create_link .tmuxrc .tmux.conf
+create_link vimrc.bundles .vimrc.bundles
+create_link vimrc.local   .vimrc.local
 
 

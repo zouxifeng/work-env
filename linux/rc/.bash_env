@@ -1,6 +1,7 @@
 # Use oh-my-zsh bundle to show PS1
 # export PS1='\[\e]2;\u@\H \w\a\e[32;1m\]\u@\[\e[34;1m\]\H:\[\033[31m\]\[\033[00m\]\[\e[31;40m\]$(__git_ps1 "(%s)") \[\e[33;1m\]\w\$ \[\e[0m\]'
 
+export LC_ALL="en_US.UTF-8"
 export EDITOR=vim
 
 # Make less and man pages to show some color.
@@ -14,4 +15,4 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 # Terminal will reserve Ctrl+s keybinding internally.
 # But I want to use this to save file in vim.
-stty -ixon
+# stty -ixon
