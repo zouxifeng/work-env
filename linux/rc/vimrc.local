@@ -1,4 +1,5 @@
 " My custom settings.
+
 " gz in command mode closes the current buffer
 map gz :bdelete<cr>
 
@@ -15,6 +16,7 @@ set listchars=tab:▸\ ,trail:▫
 set ruler                                                    " show where you are
 set showcmd
 set smartcase                                                " case-sensitive search if any caps
+set cursorline                                               " show the line where cursor is
 
 " Key mappings
 let mapleader = ','

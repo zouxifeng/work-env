@@ -45,3 +45,4 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 alias grep='grep --color=auto'
+alias tmux='tmux -2'
