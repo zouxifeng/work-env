@@ -14,7 +14,16 @@ set ignorecase                                               " case-insensitive 
 set list                                                     " show trailing whitespace
 set listchars=tab:▸\ ,trail:▫
 set ruler                                                    " show where you are
-set colorcolumn=80
+
+" colorcolumn introduced with 7.3+
+if exists('+colorcolumn')
+    set colorcolumn=81
+endif
+
+" Display content exceeds 80 as error red."
+highlight OverLength ctermbg=darkred ctermfg=white guibg=#FFD9D9
+match OverLength /\%>81v.\+/
+
 set showcmd
 set smartcase                                                " case-sensitive search if any caps
 set cursorline                                               " show the line where cursor is
