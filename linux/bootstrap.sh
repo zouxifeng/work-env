@@ -47,14 +47,14 @@ function setup_vim() {
     # Install fisa vim config bundle
     curl -o ~/.vimrc https://raw.github.com/fisadev/fisa-vim-config/master/.vimrc
 
-    VIM_PS_LINENUMBER="`grep -n "Powerline_symbols" ~/.vimrc | cut -f1 -d:`"
-    if [ -n "$VIM_PS_LINENUMBER" ]; then
-        echo "Find Powerline_symbols at $VIM_PS_LINENUMBER"
-        echo "Enable power line symbols..."
-        sed -i "${VIM_PS_LINENUMBER}s/\" //" ~/.vimrc
-    else
-        echo "Powerline symbols not found."
-    fi
+    #VIM_PS_LINENUMBER="`grep -n "Powerline_symbols" ~/.vimrc | cut -f1 -d:`"
+    #if [ -n "$VIM_PS_LINENUMBER" ]; then
+    #    echo "Find Powerline_symbols at $VIM_PS_LINENUMBER"
+    #    echo "Enable power line symbols..."
+    #    sed -i "${VIM_PS_LINENUMBER}s/\" //" ~/.vimrc
+    #else
+    #    echo "Powerline symbols not found."
+    #fi
 
     CUSTOM_GITHUB_REPO_LINENUMBER="`grep -n "Bundles from GitHub repos:" ~/.vimrc | cut -f1 -d:`"
     if [ -n "$CUSTOM_GITHUB_REPO_LINENUMBER" ]; then
@@ -111,7 +111,7 @@ create_link .bash_aliases
 create_link .bash_path
 create_link .bash_env
 create_link .gitconfig
-create_link .tmuxrc .tmux.conf
+create_link tmux.conf .tmux.conf
 create_link vimrc.bundles .vimrc.bundles
 create_link vimrc.local   .vimrc.local
 
