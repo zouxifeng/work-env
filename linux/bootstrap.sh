@@ -42,7 +42,7 @@ function create_link() {
 function setup_vim() {
     echo "Setup VIM..."
     # Clean VIM settings
-    # rm -rf ~/.vim
+    rm -rf ~/.vim
     rm -f ~/.vimrc ~/.gvimrc
     rm -f ~/.vimrc.local ~/.gvimrc.local ~/.vimrc.before ~/.vimrc.after
 
