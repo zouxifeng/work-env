@@ -35,13 +35,15 @@ function create_link() {
     if [ -L "$TARGET_FILE" ]; then
         rm -f "${TARGET_FILE}"
     fi
-    ln -s $PRGDIR/rc/$FILE $TARGET_FILE
+    SRC="$PRGDIR/rc/$FILE"
+    ln -s $SRC $TARGET_FILE
 }
 
 function setup_vim() {
     echo "Setup VIM..."
     # Clean VIM settings
-    rm -rf ~/.vim ~/.vimrc ~/.gvimrc
+    # rm -rf ~/.vim
+    rm -f ~/.vimrc ~/.gvimrc
     rm -f ~/.vimrc.local ~/.gvimrc.local ~/.vimrc.before ~/.vimrc.after
 
     # Install fisa vim config bundle
@@ -66,9 +68,13 @@ function setup_vim() {
     echo -e "\\nsource ~/.vimrc.local\\n" >> ~/.vimrc
 
     mkdir -p ~/.fonts
-    ln -s $PRGDIR/Monaco_Linux-Powerline.ttf ~/.fonts
+    if [ ! -e "$HOME/.fonts/Monaco_Linux-Powerline.ttf" ]; then
+        ln -s $PRGDIR/Monaco_Linux-Powerline.ttf ~/.fonts/Monaco_Linux-Powerline.ttf
+    fi
     sudo fc-cache -vf > /dev/null 2>&1
 
+    create_link vimrc.bundles $HOME/.vimrc.bundles
+    create_link vimrc.local   $HOME/.vimrc.local
     echo "VIM is ready to use now."
 }
 
@@ -101,18 +107,31 @@ source ~/.bash_path
 
 setupdir
 
-# sudo apt-get install vim zsh tmux autojump
-
-setup_zsh
-setup_vim
-
 echo "Working directory: $PRGDIR"
-create_link .bash_aliases
-create_link .bash_path
-create_link .bash_env
-create_link .gitconfig
-create_link tmux.conf .tmux.conf
-create_link vimrc.bundles .vimrc.bundles
-create_link vimrc.local   .vimrc.local
 
+function create_links() {
+    create_link .bash_aliases
+    create_link .bash_path
+    create_link .bash_env
+    create_link .gitconfig
+    create_link tmux.conf .tmux.conf
+}
+
+# sudo apt-get install vim zsh tmux autojump
+case "$1" in
+    vim)
+        setup_vim
+    ;;
+    zsh)
+        setup_zsh
+    ;;
+    links)
+        create_links
+    ;;
+    *)
+        setup_zsh
+        setup_vim
+        create_links
+    ;;
+esac
 
