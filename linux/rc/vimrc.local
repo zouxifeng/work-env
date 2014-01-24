@@ -38,16 +38,18 @@ map <leader>l :Align
 nmap <leader>a :Ack 
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>tr :NERDTreeToggle<CR>
-nmap <leader>f :NERDTreeFind<CR>
 nmap <leader>t :CtrlP<CR>
 nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 nmap <leader>] :TagbarToggle<CR>
 " square whitespace plugin not installed. Disabled
 " nmap <leader><space> :call whitespace#strip_trailing()<CR>
-nmap <leader>g :GitGutterToggle<CR>
-nmap <leader>c <Plug>Kwbd
+nmap <leader>gt :GitGutterToggle<CR>
+" nmap <leader>c <Plug>Kwbd
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 inoremap jj <ESC>
+
+" ,s will save current buffer.
+map <Leader>sv :w<cr>
 
 " plugin settings
 let g:ctrlp_match_window = 'order:ttb,max:20'
@@ -72,6 +74,8 @@ autocmd BufRead,BufNewFile *.md set filetype=markdown
 " For django
 autocmd FileType python set ft=python.django " For SnipMate
 autocmd FileType html set ft=htmldjango.html " For SnipMate
+" For actionscript
+au BufNewFile,BufRead *.as set filetype=actionscript
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 

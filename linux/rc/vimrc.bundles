@@ -11,3 +11,5 @@ Bundle 'scrooloose/syntastic'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'christoomey/vim-tmux-navigator'
 Bundle 'robhudson/snipmate_for_django'
+Bundle 'jeroenbourgois/vim-actionscript'
+
