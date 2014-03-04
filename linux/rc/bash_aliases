@@ -5,7 +5,11 @@ else
     alias ls="ls --color=auto"
 fi
 
-alias vim="/usr/local/Cellar/vim/7.4.161/bin/vim"
+if [ 'Darwin' = "`uname`" ]; then
+    alias vim="/usr/local/Cellar/vim/7.4.161/bin/vim"
+else
+    alias vi="vim"
+fi
 
 # some more ls aliases
 alias ll='ls -alF'

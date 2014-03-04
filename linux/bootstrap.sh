@@ -23,19 +23,13 @@ setupdir () {
 }
 
 function create_link() {
-    FILE=$1
-    DST=$2
-    if [ -z "$2" ]; then
-        TARGET_FILE=$HOME/$1
-    else
-        TARGET_FILE=$2
-    fi
+    TARGET_FILE="$HOME/.$1"
 
     echo "Create sym link for $1, at $TARGET_FILE..."
     if [ -L "$TARGET_FILE" ]; then
         rm -f "${TARGET_FILE}"
     fi
-    SRC="$PRGDIR/rc/$FILE"
+    SRC="$PRGDIR/rc/$1"
     ln -s $SRC $TARGET_FILE
 }
 
@@ -95,9 +89,7 @@ function setup_zsh() {
 
 
     echo -e "
-source ~/.bash_env
-source ~/.bash_aliases
-source ~/.bash_path
+source ~/.zshrc.local
     " >> ~/.zshrc
 
     source ~/.zshrc
@@ -110,10 +102,11 @@ setupdir
 echo "Working directory: $PRGDIR"
 
 function create_links() {
-    create_link .bash_aliases
-    create_link .bash_path
-    create_link .bash_env
-    create_link .gitconfig
+    create_link bash_aliases .bash_aliases
+    create_link bash_path .bash_path
+    create_link bash_env .bash_env
+    create_link gitconfig
+    create_link zshrc.local .zshrc.local
     create_link tmux.conf .tmux.conf
 }
 
