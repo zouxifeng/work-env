@@ -5,6 +5,8 @@ else
     alias ls="ls --color=auto"
 fi
 
+alias vim="/usr/local/Cellar/vim/7.4.161/bin/vim"
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'

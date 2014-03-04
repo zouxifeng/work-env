@@ -1,0 +1,8 @@
+source ~/.bash_env
+source ~/.bash_aliases
+source ~/.bash_path
+
+bindkey -v
+bindkey "^R" history-incremental-search-backward
+bindkey "^P" up-line-or-search
+bindkey "^N" down-history
