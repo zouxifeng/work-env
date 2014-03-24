@@ -1,13 +1,9 @@
-ANDROID_HOME=~/apps/android-sdk-linux
-ANDROID_NDK_HOME=~/apps/android-ndk
+ANDROID_HOME=~/Applications/android-sdk-linux
+ANDROID_NDK_HOME=~/Applications/android-ndk
 
-ANT_HOME=~/apps/ant
-MAVEN_HOME=~/apps/maven
-
-PATH=$PATH:/usr/local/bin:~/apps/bin:~/work/phabricator/arcanist/bin:$VIM_HOME/bin
+PATH=$PATH:/usr/local/bin:~/Applications/bin:~/Work/phabricator/arcanist/bin:$VIM_HOME/bin
 PATH=$PATH:$NODE_HOME/bin/:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_NDK_HOME
-export PATH=$PATH:$ANT_HOME/bin:$MAVEN_HOME/bin:~/apps/
+export PATH=$PATH:$ANT_HOME/bin:$MAVEN_HOME/bin:~/Applications/
 
-export JAVA_HOME=~/apps/jdk1.7.0_45
-export NODE_HOME=$HOME/apps/node
+export NODE_HOME=$HOME/Applications/node
 export NODE_PATH=$NODE_HOME:$NODE_HOME/lib/node_modules

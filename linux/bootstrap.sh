@@ -84,7 +84,7 @@ function setup_zsh() {
     PLUGINS_LINENUMBER="`grep -n "(git)" ~/.zshrc | cut -f1 -d:`"
     echo "Find plugins at $PLUGINS_LINENUMBER"
     if [ -n "$PLUGINS_LINENUMBER" ]; then
-        sed -i "${PLUGINS_LINENUMBER}s/git/git tmux autojump/" ~/.zshrc
+        sed -i "${PLUGINS_LINENUMBER}s/git/git tmux autojump ruby vagrant/" ~/.zshrc
     fi
 
 
