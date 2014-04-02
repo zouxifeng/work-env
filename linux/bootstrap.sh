@@ -81,12 +81,16 @@ function setup_zsh() {
         sed -i "${THEME_LINENUMBER}s/robbyrussell/dpoggi/" ~/.zshrc
     fi
 
+    ENABLED_PLUGINS="git tmux"
+    if [ `uname` == "Darwin" ]; then
+        ENABLED_PLUGINS="${ENABLED_PLUGINS} autojump ruby vagrant docker osx brew brew-cask pip python fabric"
+    fi
+
     PLUGINS_LINENUMBER="`grep -n "(git)" ~/.zshrc | cut -f1 -d:`"
     echo "Find plugins at $PLUGINS_LINENUMBER"
     if [ -n "$PLUGINS_LINENUMBER" ]; then
-        sed -i "${PLUGINS_LINENUMBER}s/git/git tmux autojump ruby vagrant/" ~/.zshrc
+        sed -i "${PLUGINS_LINENUMBER}s/git/${ENABLED_PLUGINS}/" ~/.zshrc
     fi
-
 
     echo -e "
 source ~/.zshrc.local
