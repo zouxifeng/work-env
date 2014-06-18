@@ -41,7 +41,7 @@ function setup_vim() {
     rm -f ~/.vimrc.local ~/.gvimrc.local ~/.vimrc.before ~/.vimrc.after
 
     # Install fisa vim config bundle
-    curl -o ~/.vimrc https://raw.github.com/fisadev/fisa-vim-config/master/.vimrc
+    curl -L -o ~/.vimrc https://raw.github.com/fisadev/fisa-vim-config/master/.vimrc
 
     #VIM_PS_LINENUMBER="`grep -n "Powerline_symbols" ~/.vimrc | cut -f1 -d:`"
     #if [ -n "$VIM_PS_LINENUMBER" ]; then
