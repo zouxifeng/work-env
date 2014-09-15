@@ -14,6 +14,7 @@ set ignorecase                                               " case-insensitive 
 set list                                                     " show trailing whitespace
 set listchars=tab:▸\ ,trail:▫
 set ruler                                                    " show where you are
+set backspace=indent,eol,start
 
 " colorcolumn introduced with 7.3+
 if exists('+colorcolumn')
@@ -29,7 +30,7 @@ set smartcase                                                " case-sensitive se
 set cursorline                                               " show the line where cursor is
 
 " Key mappings
-let mapleader = ','
+let mapleader=','
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -49,7 +50,7 @@ map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 inoremap jj <ESC>
 
 " ,s will save current buffer.
-map <Leader>sv :w<cr>
+map <leader>sv :w<cr>
 
 " plugin settings
 let g:ctrlp_match_window = 'order:ttb,max:20'
@@ -79,6 +80,9 @@ au BufNewFile,BufRead *.as set filetype=actionscript
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
+" Gradle build script
+autocmd BufRead,BufNewFile *.gradle set filetype=groovy
+
 " Fix Cursor in TMUX
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
@@ -88,4 +92,33 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '⚠'
 
+" Disable java syntax checking, since it will start a java vm and freeze my
+" mac
+let g:syntastic_mode_map = { 'mode': 'active',
+                               \ 'active_filetypes': [],
+                               \ 'passive_filetypes': ['java'] }
+
+
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'bubblegum'
+let g:airline#extensions#whitespace#enabled = 1
+
+" to use fancy symbols for airline, uncomment the following lines and use a
+" patched font (more info on the README.rst)
+if !exists('g:airline_symbols')
+   let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
+
+let g:ragtag_global_maps = 1
