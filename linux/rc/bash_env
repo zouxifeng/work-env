@@ -16,3 +16,13 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 # Terminal will reserve Ctrl+s keybinding internally.
 # But I want to use this to save file in vim.
 # stty -ixon
+
+# For cheat coloring
+export CHEATCOLORS=true
+
+if [ `uname` = "Darwin" ]; then
+    # For docker
+    export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
+    export DOCKER_TLS_VERIFY=1
+    export DOCKER_HOST=tcp://192.168.59.103:2376
+fi

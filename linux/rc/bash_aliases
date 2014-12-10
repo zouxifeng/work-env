@@ -1,14 +1,11 @@
 if [ 'Darwin' = "`uname`" ]; then
     export CLICOLOR=1
     export LSCOLORS=GxFxCxDxBxegedabagaced
-else
-    alias ls="ls --color=auto"
-fi
 
-if [ 'Darwin' = "`uname`" ]; then
-    alias vim="/usr/local/Cellar/vim/7.4.161/bin/vim"
+    alias vim="/usr/local/Cellar/vim/7.4.488/bin/vim"
 else
     alias vi="vim"
+    alias ls="ls --color=auto"
 fi
 
 # some more ls aliases
@@ -35,7 +32,7 @@ alias grr='git remote rm'
 alias grst='git reset'
 alias gpl='git pull'
 alias gl='git log'
-alias ga='git add'
+alias ga='git add -A'
 alias gcl='git clone'
 alias gsvn='git svn'
 

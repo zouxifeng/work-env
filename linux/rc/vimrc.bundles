@@ -1,5 +1,4 @@
 " My custom bundles 
-Bundle 'jnwhiteh/vim-golang'
 Bundle 'alderz/smali-vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-fugitive'
@@ -13,3 +12,4 @@ Bundle 'jeroenbourgois/vim-actionscript'
 Bundle 'vim-multiple-cursors'
 Bundle 'rking/ag.vim'
 Bundle 'yonchu/accelerated-smooth-scroll'
+Bundle 'fatih/vim-go'
