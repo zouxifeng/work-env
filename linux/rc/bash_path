@@ -1,4 +1,4 @@
-ANDROID_HOME=~/Applications/android-sdk-linux
+ANDROID_HOME=~/Applications/android-sdk
 ANDROID_NDK_HOME=~/Applications/android-ndk
 
 export GOPATH=~/.golang
@@ -6,10 +6,10 @@ export NODE_HOME=$HOME/Applications/node
 export NODE_PATH=$NODE_HOME:$NODE_HOME/lib/node_modules
 
 PATH=$PATH:/usr/local/bin:~/Applications/bin:~/Applications/phabricator/arcanist/bin:$VIM_HOME/bin
-PATH=$PATH:$NODE_HOME/bin/:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_NDK_HOME
+PATH=$PATH:$NODE_HOME/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_NDK_HOME
 
-export PATH=$PATH:$ANT_HOME/bin:$MAVEN_HOME/bin:~/Applications/:$GOPATH/bin
+export PATH=$PATH:$ANT_HOME/bin:$MAVEN_HOME/bin:~/Applications:$GOPATH/bin
 
 if [ `uname` = "Darwin" ]; then
-    export PATH=$PATH:/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/bin/
+    export PATH=$PATH:/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/bin
 fi

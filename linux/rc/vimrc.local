@@ -52,6 +52,10 @@ inoremap jj <ESC>
 " ,s will save current buffer.
 map <leader>sv :w<cr>
 
+" Copied from google yapf
+map <C-P> :call yapf#YAPF()<cr>
+imap <C-P> <c-o>:call yapf#YAPF()<cr>
+
 " plugin settings
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
@@ -72,9 +76,16 @@ endif
 autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
 " md is markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
+
+" For python with google yapf
+autocmd FileType python set shiftwidth=2
+autocmd FileType python set tabstop=2
+autocmd FileType python set softtabstop=2
+
 " For django
 autocmd FileType python set ft=python.django " For SnipMate
 autocmd FileType html set ft=htmldjango.html " For SnipMate
+
 " For actionscript
 au BufNewFile,BufRead *.as set filetype=actionscript
 " automatically rebalance windows on vim resize
