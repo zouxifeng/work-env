@@ -6,7 +6,7 @@
     st = status
 [core]
     editor = vim
-    autocrlf = true
+    autocrlf = input
     whitespace = space-before-tab, trailing-space, indent-with-non-tab
 	excludesfile = /Users/zouxifeng/.gitignore_global
 [color]

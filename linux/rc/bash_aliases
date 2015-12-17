@@ -2,7 +2,7 @@ if [ 'Darwin' = "`uname`" ]; then
     export CLICOLOR=1
     export LSCOLORS=GxFxCxDxBxegedabagaced
 
-    alias vim="/usr/local/Cellar/vim/7.4.488/bin/vim"
+    alias vim="/usr/local/Cellar/vim/7.4.922/bin/vim"
 else
     alias vi="vim"
     alias ls="ls --color=auto"
@@ -36,6 +36,10 @@ alias ga='git add -A'
 alias gcl='git clone'
 alias gsvn='git svn'
 
+# docker
+alias dcm='docker-compose'
+alias dm='docker-machine'
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -49,3 +53,6 @@ fi
 
 alias grep='grep --color=auto'
 alias tmux='tmux -2'
+
+# When kill tmux session will freeze Mac, need to kill notifyd
+alias bug="sudo kill $(ps aux | grep '[n]otifyd' | awk '{print $2}')"

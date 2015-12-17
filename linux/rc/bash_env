@@ -20,9 +20,13 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 # For cheat coloring
 export CHEATCOLORS=true
 
-if [ `uname` = "Darwin" ]; then
+if [ `uname`="Darwin" ]; then
     # For docker
-    export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
-    export DOCKER_TLS_VERIFY=1
-    export DOCKER_HOST=tcp://192.168.59.103:2376
+    DOCKER_STATUS=`docker-machine status dev`
+    if [ "$DOCKER_STATUS" != "Running" ]; then
+        echo "Don't forget to start docker container with 'docker-machine start dev'"
+        echo "Then set docker container environment with 'eval \"\$(docker-machine env dev)\"'"
+    else
+        eval "$(docker-machine env dev)"
+    fi
 fi

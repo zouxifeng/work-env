@@ -1,5 +1,5 @@
-ANDROID_HOME=~/Applications/android-sdk
-ANDROID_NDK_HOME=~/Applications/android-ndk
+export ANDROID_HOME=~/Applications/android-sdk
+export ANDROID_NDK_HOME=~/Applications/android-ndk
 
 export GOPATH=~/.golang
 export NODE_HOME=$HOME/Applications/node

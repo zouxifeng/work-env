@@ -83,8 +83,8 @@ autocmd FileType python set tabstop=2
 autocmd FileType python set softtabstop=2
 
 " For django
-autocmd FileType python set ft=python.django " For SnipMate
-autocmd FileType html set ft=htmldjango.html " For SnipMate
+" autocmd FileType python set ft=python.django " For SnipMate
+" autocmd FileType html set ft=htmldjango.html " For SnipMate
 
 " For actionscript
 au BufNewFile,BufRead *.as set filetype=actionscript
