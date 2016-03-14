@@ -1,5 +1,5 @@
 " My custom bundles 
-Bundle 'alderz/smali-vim'
+" Bundle 'alderz/smali-vim'
 Bundle 'tpope/vim-commentary'
 Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/greplace.vim'
@@ -15,3 +15,4 @@ Bundle 'yonchu/accelerated-smooth-scroll'
 Bundle 'fatih/vim-go'
 Bundle 'google/yapf'
 Bundle 'godlygeek/tabular'
+Bundle 'davidhalter/jedi-vim.git'

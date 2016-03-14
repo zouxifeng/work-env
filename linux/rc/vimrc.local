@@ -35,8 +35,6 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-map <leader>l :Align
-nmap <leader>a :Ack 
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>tr :NERDTreeToggle<CR>
 nmap <leader>t :CtrlP<CR>
@@ -77,10 +75,11 @@ autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
 " md is markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
 
-" For python with google yapf
-autocmd FileType python set shiftwidth=2
-autocmd FileType python set tabstop=2
-autocmd FileType python set softtabstop=2
+autocmd FileType python setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType pythondjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " For django
 " autocmd FileType python set ft=python.django " For SnipMate
@@ -133,3 +132,14 @@ let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
 
 let g:ragtag_global_maps = 1
+
+let g:pymode_rope_lookup_project = 0
+
+nmap <Leader>t= :Tabularize /=<CR>
+vmap <Leader>t= :Tabularize /=<CR>
+nmap <Leader>t: :Tabularize /:\zs<CR>
+vmap <Leader>t: :Tabularize /:\zs<CR>
+
+" Jedi configurations
+let g:jedi#auto_initialization = 1
+let g:jedi#popup_select_first = 0
