@@ -2,7 +2,7 @@ if [ 'Darwin' = "`uname`" ]; then
     export CLICOLOR=1
     export LSCOLORS=GxFxCxDxBxegedabagaced
 
-    alias vim="/usr/local/Cellar/vim/7.4.922/bin/vim"
+    alias vim="/usr/local/Cellar/vim/8.0.0002/bin/vim"
 else
     alias vi="vim"
     alias ls="ls --color=auto"
