@@ -30,3 +30,4 @@ if [ `uname`="Darwin" ]; then
         eval "$(docker-machine env dev)"
     fi
 fi
+

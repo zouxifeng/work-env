@@ -9,6 +9,7 @@
     autocrlf = input
     whitespace = space-before-tab, trailing-space, indent-with-non-tab
 	excludesfile = /Users/zouxifeng/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
     ui = auto
 [user]
@@ -16,6 +17,12 @@
 	name = 
 [push]
 	default = simple
+[diff]
+    tool = icdiff
+[difftool]
+    prompt = false
+[difftool "icdiff"]
+    cmd = /usr/local/bin/icdiff --line-number $LOCAL $REMOTE
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -23,4 +30,4 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [commit]
-	template = /Users/zouxifeng/.stCommitMsg
+	template = /Users/zouxifeng/.git-commit-message

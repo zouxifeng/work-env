@@ -1,14 +1,18 @@
 export ANDROID_HOME=~/Applications/android-sdk
 export ANDROID_NDK_HOME=~/Applications/android-ndk
 
-export GOPATH=~/.golang
-export NODE_HOME=$HOME/Applications/node
-export NODE_PATH=$NODE_HOME:$NODE_HOME/lib/node_modules
+export GOPATH=~/Work/golang
 
-PATH=/usr/local/bin:$PATH:~/Applications/bin:~/Applications/phabricator/arcanist/bin:$VIM_HOME/bin
+DEPO_TOOLS=~/Work/depot_tools
+PHABRICATOR_HOME=~/Work/phabricator
+
+PATH=/usr/local/bin:/usr/local/sbin:~/Applications/bin:~/Applications/phabricator/arcanist/bin:$VIM_HOME/bin:$PATH:
 PATH=$PATH:$NODE_HOME/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$ANDROID_NDK_HOME
 
-export PATH=$PATH:$ANT_HOME/bin:$MAVEN_HOME/bin:~/Applications:$GOPATH/bin
+PATH=$PATH:$ANT_HOME/bin:$MAVEN_HOME/bin:~/Applications:$GOPATH/bin:$PHABRICATOR_HOME/arcanist/bin
+
+export PATH=$PATH:$ANT_HOME/bin:$MAVEN_HOME/bin:~/Applications:$GOPATH/bin:$DEPO_TOOLS
+
 
 if [ `uname` = "Darwin" ]; then
     export PATH=$PATH:/System/Library/Frameworks/JavaVM.framework/Versions/CurrentJDK/Home/bin

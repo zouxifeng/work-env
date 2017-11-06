@@ -105,11 +105,14 @@ let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 
+
 " Disable java syntax checking, since it will start a java vm and freeze my
 " mac
+" Disable go syntax checking for lagging while open and save file
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 let g:syntastic_mode_map = { 'mode': 'active',
                                \ 'active_filetypes': [],
-                               \ 'passive_filetypes': ['java'] }
+                               \ 'passive_filetypes': ['java', 'go'] }
 
 
 let g:airline_powerline_fonts = 1

@@ -2,7 +2,7 @@ if [ 'Darwin' = "`uname`" ]; then
     export CLICOLOR=1
     export LSCOLORS=GxFxCxDxBxegedabagaced
 
-    alias vim="/usr/local/Cellar/vim/8.0.0002/bin/vim"
+    alias vim="/usr/local/Cellar/vim/8.0.1100_1/bin/vim"
 else
     alias vi="vim"
     alias ls="ls --color=auto"
@@ -56,3 +56,4 @@ alias tmux='tmux -2'
 
 # When kill tmux session will freeze Mac, need to kill notifyd
 alias bug="sudo kill $(ps aux | grep '[n]otifyd' | awk '{print $2}')"
+alias gget="http_proxy=http://127.0.0.1:8087 https_proxy=http://127.0.0.1:8087"
